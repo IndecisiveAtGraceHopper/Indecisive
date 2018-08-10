@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "concurrently": "concurrently \"npm start\" \"cd client && npm start\""
   },
   "dependencies": {
     "@google/maps": "^0.5.5",
     "axios": "^0.18.0",
+    "concurrently": "^3.6.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
