@@ -99,7 +99,8 @@ router.post('/poll', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id)
-    const updatedUser = await user.update(req.body)
+    const updateObject = {firstName: req.body.firstName, lastName: req.body.lastName, phone: req.body.phone, address: req.body.address, image: req.body.image}
+    const updatedUser = await user.update(updateObject)
     res.json(updatedUser)
   } catch (err) {
     next(err)

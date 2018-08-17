@@ -10,15 +10,19 @@ class UserProfile extends Component {
         firstName: '',
         lastName: '',
         phone: '',
-        address: ''
-      }
+        email: '',
+        address: '',
+        image: ''
+      },
+      currentImage: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   async componentDidMount(){
-    await this.props.getUser()
+    await this.setState({user: this.props.user})
+    await this.setState({currentImage: this.state.user.image})
   }
 
   handleChange(evt) {
@@ -28,11 +32,15 @@ class UserProfile extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault()
-    this.props.updateProfile({firstName: this.state.user.firstName, lastName: this.state.user.lastName, phone: this.state.user.phone, address: this.state.user.address}, this.props.user.id)}
+    if (this.state.user.image.length > 3) {
+      this.setState({currentImage: this.state.user.image})
+    }
+    this.props.updateProfile({firstName: this.state.user.firstName, lastName: this.state.user.lastName, phone: this.state.user.phone, email: this.state.user.email, address: this.state.user.address, image: this.state.user.image}, this.props.user.id)
+  }
 
   render() {
     return (
-      <div>
+      <div id='user-profile'>
         <h3>Welcome, {this.props.user.email}</h3>
         <form id='userProfile' onSubmit={this.handleSubmit}>
           <div>
@@ -50,7 +58,14 @@ class UserProfile extends Component {
           <div>
             <label htmlFor='address'>Address</label>
             <input name='address' type='string' onChange={this.handleChange} value={this.state.user.address} />
-          </div>          
+          </div>
+          <div>
+            <label htmlFor='image'>Profile Photo URL</label>
+            <input name='image' type='string' onChange={this.handleChange} value={this.state.user.image} />
+          </div>
+          <div>
+            <img src={this.state.currentImage} width='200px' height='200px' />
+          </div>
           <div>
             <button type='submit'>Submit</button>
           </div>

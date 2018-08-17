@@ -29,7 +29,6 @@
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-around;
-    border: 2px solid black;
 }
 
 #navbar {
@@ -41,4 +40,19 @@
 
 #logout {
     max-width: 100px;
+}
+
+#user-profile {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

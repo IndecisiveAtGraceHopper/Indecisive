@@ -41,7 +41,7 @@ router.post('/signup', async (req, res, next) => {
 router.put('/profile/:id', async(req, res, next) => {
   try {
     const profile = await User.findById(req.params.id)
-    const updatedProfile = await profile.update({firstName: req.body.firstName, lastName: req.body.lastName, phone: req.body.phone, address: req.body.address})
+    const updatedProfile = await profile.update({firstName: req.body.firstName, lastName: req.body.lastName, phone: req.body.phone, address: req.body.address, email: req.body.email, image: req.body.image})
     res.status(202).send(updatedProfile)
   }
   catch (error){
