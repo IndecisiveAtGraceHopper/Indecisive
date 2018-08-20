@@ -21,7 +21,7 @@ async function seed() {
       lastName: 'Ferrari',
       email: 'karaf@indecisive.com',
       password: '123',
-      phone:8608179810,
+      phone:2039062676,
       address: '10 Hanover Square'})
 
     const sarah = await User.create({
