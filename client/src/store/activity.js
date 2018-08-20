@@ -31,6 +31,7 @@ export const fetchActivities = (adventureId) => {
     return async (dispatch) => {
       try {
         const {data} = await axios.get(`/api/adventures/${adventureId}/activities`)
+        console.log('activities', data)
         const action = loadActivities(data)
         dispatch(action)
       } catch (err) {
