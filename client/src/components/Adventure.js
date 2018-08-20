@@ -4,66 +4,52 @@ import {fetchActivities} from '../store/activity'
 import {getPoll} from '../store/poll'
 import {connect} from 'react-redux'
 import {Map, Poll} from './index'
-import {getUserAdventuresThunk} from '../store/user'
+import {getAdventure} from '../store/adventure'
 import {PinBoard} from './index'
 
-
 class Adventure extends Component {
-  constructor() {
-    super()
-    this.state = {
-      date: '',
-      time: '',
-      podId: '',
-      pollId: '',
-      name: '',
-      notes: [],
-      userId: '',
-      showMap: false,
-      locations: []
-    }
-  }
 
   async componentDidMount() {
     await this.props.getPoll(this.props.match.params.id, this.props.userId)
     await this.props.fetch(this.props.match.params.id)
-    await this.props.getAdventures(this.props.userId)
-    const activities = this.props.activities
-    const locations = activities.map(activity => {
-      return {coords: activity.address, title: activity.name}
-    })
-    this.setState({locations})
+    await this.props.getThisAdventure(this.props.userId)
+    console.log('this.props.poll', this.props.poll)
+    console.log('this.props.activities', this.props.activities)
+    console.log('this.props.adventure', this.props.adventure)
   }
 
   render() {
-    if (this.props.activities.length){
-        return (
-          <div id='adventure-page'>
-            <h3>Adventure</h3>
-            <div id='activities-container'>
-              {this.props.activities.map((activity) =>
-                <Activity activity={activity} isCoord={true} key={activity.id}/>
-              )}
-            </div>
-            <div id='adventure-map-container'>
-              {this.state.locations.length &&
-                <Map interactive={false} coords={this.state.locations} />
-              }
-            </div>
-            <div id='pinboard-container'>
-              <PinBoard />
-            </div>
+    if (this.props.activities.length) {
+      console.log(
+        'rendering'
+      )
+      const locations = this.props.activities.map(activity => {
+        return {coords: activity.address, title: activity.name}
+      })
+      return (
+        <div id='adventure-page'>
+          <h3>Adventure</h3>
+          <div id='activities-container'>
+            {this.props.activities.map((activity) =>
+              <Activity activity={activity} isCoord={true} key={activity.id}/>
+            )}
           </div>
-        )
-      }
-    else if (!Object.keys(this.props.poll).length){
+          <div id='adventure-map-container'>
+              <Map interactive={false} coords={locations} />
+          </div>
+          <div id='pinboard-container'>
+            <PinBoard />
+          </div>
+        </div>
+      )
+    }
+    else if (Object.keys(this.props.poll).length === 0) {
       return (<Poll adventureId={this.props.match.params.id} />)
     }
-    else if (this.props.adventure) {
+    else if ((Object.keys(this.props.adventure).length > 0) && (this.props.adventure.counter < this.props.adventure.totalCount)) {
       const {adventure} = this.props
-      console.log('adventure', adventure)
-      return (<h1> {`${adventure[0].counter} out of ${adventure[0].totalCount} of your polls are in`} </h1>)
-      }
+      return (<div className='page-body'><h1>{`${adventure.counter} out of ${adventure.totalCount} of your polls are in`}</h1></div>)
+    }
     else {
       return (
         <div className='page-body'><h1>Loading</h1></div>
@@ -71,12 +57,13 @@ class Adventure extends Component {
     }
   }
 }
-const mapState= (state, {match})=> {
+
+const mapState = (state) => {
   return {
+    adventure: state.adventure,
     activities: state.activity,
     userId: state.user.id,
-    poll: state.poll.poll,
-    adventure: (state.user.adventures && state.user.adventures.filter(el => el.id === +match.params.id))
+    poll: state.poll.poll
   }
 }
 
@@ -84,7 +71,7 @@ const mapDispatch = (dispatch) => {
   return {
     fetch: (id) => dispatch(fetchActivities(id)),
     getPoll: (AdventureId, userId) => dispatch(getPoll(AdventureId, userId)),
-    getAdventures: (id)=> dispatch(getUserAdventuresThunk(id))
+    getThisAdventure: (id) => dispatch(getAdventure(id))
   }
 }
 
