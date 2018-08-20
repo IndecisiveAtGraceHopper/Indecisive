@@ -48,7 +48,7 @@ class Poll extends Component {
     const {priceRange, activityLevel, artsyLevel, hungerLevel, drinkLevel} = this.state
     const {latitude, longitude} = await this.getGeocode(this.state.location)
     this.props.submitPollThunk({latitude,longitude, priceRange, activityLevel, artsyLevel, hungerLevel, drinkLevel, adventureId: +this.props.adventureId, userId:this.props.userId})
-    this.props.updateAdventure(this.props.adventureId)
+    //this.props.updateAdventure(this.props.adventureId)
   }
   // can only test on https
   // onClick =(evt)=> {
@@ -72,7 +72,7 @@ class Poll extends Component {
               <div id='map-outer'>
                 <div id='map-container'>
                   <Map interactive='true' coords={this.state.location}/>
-                </div>  
+                </div>
               </div>
             </div>
             <div>

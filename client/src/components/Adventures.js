@@ -33,7 +33,7 @@ class Adventures extends Component {
                 {
                     futureAdventures.map(adventure => (
                         <div id="adventure" key={adventure.id}>
-                            <h4><Link to={`/adventure/${adventure.id}`}>{adventure.name}</Link></h4>
+                            <h4><Link to={`/adventures/${adventure.id}`}>{adventure.name}</Link></h4>
                         </div>
                     ))
                 }
@@ -43,7 +43,7 @@ class Adventures extends Component {
                 {
                     pastAdventures.map(adventure => (
                         <div id="adventure" key={adventure.id}>
-                            <h4><Link to={`/adventure/${adventure.id}`}>{adventure.name}</Link></h4>
+                            <h4><Link to={`/adventures/${adventure.id}`}>{adventure.name}</Link></h4>
                         </div>
                     ))
                 }
