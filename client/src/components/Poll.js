@@ -71,7 +71,7 @@ class Poll extends Component {
               <div id='map-outer'>
                 <div id='map-container'>
                   <Map interactive='true' coords={this.state.location} />
-                </div>  
+                </div>
               </div>
             </div>
             <div className='form-input'>
