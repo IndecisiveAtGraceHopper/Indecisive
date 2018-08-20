@@ -4,12 +4,10 @@ import axios from 'axios'
  * ACTION TYPES
  */
 const ADD_POD = 'ADD_POD'
-
 const GET_POD = 'GET_POD'
-
 const USER_PODS = 'USERS_PODS'
-
 const ADD_USER_TO_POD = 'ADD_USER_TO_POD'
+
 /**
  * INITIAL STATE
  */
@@ -33,8 +31,8 @@ export const createPodThunk = (podName) => {
     return async (dispatch) => {
       try {
         const response = await axios.post('/api/pods', podName)
-        const newPod= response.data
-        return Promise.resolve(newPod);
+        const newPod = response.data
+        return Promise.resolve(newPod)
       } catch (err) {
         console.log(err)
       }
@@ -43,10 +41,10 @@ export const createPodThunk = (podName) => {
 
 export const getUsersInPodThunk = (id) => {
   return async (dispatch) => {
-    const response = await axios.get(`/api/pods/${id}`);
-    const users = response.data;
-    const action = getPod(users);
-    return dispatch(action);
+    const response = await axios.get(`/api/pods/${id}`)
+    const pod = response.data
+    const action = getPod(pod)
+    return dispatch(action)
   }
 }
 
@@ -79,13 +77,10 @@ export default function(state = initialState, action) {
       return {...action.pod}
     case ADD_USER_TO_POD:
       const newUsers = state.users.slice()
-
       const userIndex = newUsers.findIndex(u => u.id === action.user.id)
       if (userIndex < 0) {
         newUsers.push(action.user)
       }
-
-
       return {...state, users: newUsers }
     default:
       return state

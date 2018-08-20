@@ -1,5 +1,5 @@
 import axios from 'axios'
-import updateAdventure from './user'
+
 /**
  * ACTION TYPES
  */

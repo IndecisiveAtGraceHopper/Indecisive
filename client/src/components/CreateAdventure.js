@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Poll from './Poll'
 import {createAdventure} from '../store/user'
 
 class CreateAdventure extends Component {

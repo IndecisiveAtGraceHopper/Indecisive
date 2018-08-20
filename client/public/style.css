@@ -56,7 +56,7 @@
     max-width: 100px;
 }
 
-#user-profile {
+#user-profile, #pod-header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -71,16 +71,9 @@ button {
     margin-bottom: 10px;
 }
 
-#pod-header {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-around;
-    list-style: none;
+#pod-header-contents {
     text-align: center;
-    align-content: center;
-    align-items: center;
+    list-style: none;
 }
 
 .page-body {
@@ -89,4 +82,24 @@ button {
 
 #user-adventures {
     text-align: center;
+}
+
+#pod-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+}
+
+#pod-members, #pod-adventures {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 10px;
+    max-width: 147px;
 }

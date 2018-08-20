@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./server/app.js",
+    "start": "node ./server/app.js",
     "seed": "node seed.js",
     "concurrently": "concurrently \"npm start\" \"cd client && npm start\"",
     "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\""

@@ -60,7 +60,7 @@ class UserProfile extends Component {
   render() {
     return (
       <div id='user-profile'>
-        <h3 className="font-weight-normal">Welcome {this.state.user.firstName},</h3>
+        <h3 className="font-weight-normal">Welcome, {this.state.user.firstName}</h3>
         <br></br>
         <form id='userProfile' onSubmit={this.handleSubmit}  className="form-group">
           <div className="form-group">
@@ -68,32 +68,32 @@ class UserProfile extends Component {
           </div>
           <div>
             <label htmlFor='email'>Email</label><br/>
-            <input className="form-control mx-sm-3" name='email' type='string' onChange={this.handleChange} value={this.state.user.email} defaultValue={this.state.user.firstName} />
+            <input className="form-control mx-sm-3" name='email' type='string' onChange={this.handleChange} value={this.state.user.email} />
             {!this.state.user.email ? <p>Email cannot be null</p> : null}
           </div>
           <div>
             <label htmlFor='firstName'>First Name</label><br/>
-            <input className="form-control mx-sm-3" name='firstName' type='string' onChange={this.handleChange} value={this.state.user.firstName} defaultValue={this.state.user.firstName} />
+            <input className="form-control mx-sm-3" name='firstName' type='string' onChange={this.handleChange} value={this.state.user.firstName} />
             {!this.state.user.firstName ? <p>You must enter your first name </p> : null}
           </div>
           <div>
             <label htmlFor='lastName'>Last Name</label><br/>
-            <input className="form-control mx-sm-3" name='lastName' type='string' onChange={this.handleChange} value={this.state.user.lastName} defaultValue={this.state.user.lastName} />
+            <input className="form-control mx-sm-3" name='lastName' type='string' onChange={this.handleChange} value={this.state.user.lastName} />
             {!this.state.user.lastName ? <p>You must enter your last name</p> : null}
           </div>
           <div>
             <label htmlFor='phone'>Phone Number</label><br/>
-            <input className="form-control mx-sm-3" name='phone' type='string' onChange={this.handleChange} value={this.state.user.phone} defaultValue={this.state.user.phone} />
+            <input className="form-control mx-sm-3" name='phone' type='string' onChange={this.handleChange} value={this.state.user.phone} />
             {!this.state.user.phone ? <p>Phone number cannot be null</p> : null}
           </div>
           <div>
             <label htmlFor='address'>Address</label><br/>
-            <input className="form-control mx-sm-3" name='address' type='string' onChange={this.handleChange} value={this.state.user.address} defaultValue={this.state.user.address} />
+            <input className="form-control mx-sm-3" name='address' type='string' onChange={this.handleChange} value={this.state.user.address} />
             {!this.state.user.address ? <p>Address cannot be null</p> : null}
           </div>
           <div>
             <label htmlFor='image'>Profile Photo URL</label><br/>
-            <input className="form-control mx-sm-3" name='image' type='string' onChange={this.handleChange} value={this.state.user.image} defaultValue={this.state.user.image} />
+            <input className="form-control mx-sm-3" name='image' type='string' onChange={this.handleChange} value={this.state.user.image} />
             {!this.state.user.image ? <p>Photo URL cannot be null</p> : null}
           </div>
 

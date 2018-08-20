@@ -6,10 +6,12 @@ import GoogleLogin from './GoogleLogin'
 class Signup extends React.Component {
   constructor(){
     super()
-    this.state={
+    this.state = {
       email: '',
       password: ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange = (evt) => {
@@ -21,6 +23,7 @@ class Signup extends React.Component {
   handleSubmit = (evt) => {
     evt.preventDefault()
     //sign up user with email and password
+    console.log('handle submit thunk')
     this.props.createUser({email: this.state.email, password: this.state.password})
   }
 
@@ -44,6 +47,9 @@ class Signup extends React.Component {
           <div className='authElement'>
           </div>
         </form>
+        <div className='authElement'>
+          <button className='btn btn-primary' type="submit" onClick={this.handleSubmit}>Sign Up</button>
+        </div>
       </div>
     )
   }
