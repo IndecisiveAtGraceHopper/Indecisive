@@ -1,7 +1,7 @@
 export {default as App} from './App'
 export {default as Poll} from './Poll'
 export {default as GoogleLogin} from './GoogleLogin'
-export {default as UserHome} from './UserHome'
+export {default as Pods} from './Pods'
 export {default as Navbar} from './Navbar'
 export {default as UserProfile} from './UserProfile'
 export {default as Signup} from './Signup'

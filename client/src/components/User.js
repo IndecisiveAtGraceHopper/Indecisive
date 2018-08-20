@@ -16,8 +16,6 @@ class Pod extends Component {
 	    this.props.getAllUsersPod(this.props.id)
 	}
 
-
-
   render() {
       if(this.props.pods){
         return (
@@ -45,7 +43,7 @@ class Pod extends Component {
           </div>
         );
       }
-      return <h1>You have no pods yet, but that is easy to fix!</h1>
+      return <h1>You have no pods yet. Create one so you can plan an adventure with your friends!</h1>
       }
     }
 

@@ -7,7 +7,7 @@ import UserPods from './User'
 /**
  * COMPONENT
  */
-class UserHome extends Component {
+class Pods extends Component {
   constructor(){
     super()
     this.state = {
@@ -32,22 +32,24 @@ class UserHome extends Component {
   render() {
     return (
       <div>
-       <div><UserPods id={this.props.userId} /></div>
-       <br/>
-      <h3 className="text-center font-weight-normal"> Create a new pod! </h3>
+        <div id='user-pods'>
+          <UserPods id={this.props.userId} />
+        </div>
+        <br/>
+        <h3 className="text-center font-weight-normal"> Create a new pod! </h3>
         <form onSubmit={this.handleSubmit}>
-         <div className="form-group form-check">
+          <div className="form-group form-check">
             <label htmlFor="name" />
-            <input type="text" name="name"  onChange={this.handleChange}
+            <input type="text" name="name" onChange={this.handleChange}
             className="form-control" id="name" aria-describedby="name" placeholder="Enter pod name" />
             <small id="name" className="form-text text-muted" />
-        </div>
+          </div>
           <span>
           <br/>
-           <button className="btn btn-secondary btn-lg btn-block"type='submit'>Create</button>
+          <button className="btn btn-secondary btn-lg btn-block" type='submit'>Create a New Pod</button>
           </span>
-      </form>
-    </div>
+        </form>
+      </div>
     )
   }
 }
@@ -64,4 +66,4 @@ const mapDispatch = dispatch => {
   })
 }
 
-export default connect(mapState, mapDispatch)(UserHome)
+export default connect(mapState, mapDispatch)(Pods)

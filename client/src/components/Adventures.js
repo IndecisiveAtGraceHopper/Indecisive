@@ -27,19 +27,20 @@ class Adventures extends Component {
             return Date.parse(date) < Date.now()
         })
         return (
-            <div>
-                <h2>Upcoming Adventures</h2>
-                <div>
+            <div id='user-adventures'>
+                <h3>Upcoming Adventures</h3>
+                <div id='future-adventures'>
                 {
                     futureAdventures.map(adventure => (
                         <div id="adventure" key={adventure.id}>
                             <h4><Link to={`/adventures/${adventure.id}`}>{adventure.name}</Link></h4>
+
                         </div>
                     ))
                 }
                 </div>
-                <h2>Past Adventures</h2>
-                <div>
+                <h3>Past Adventures</h3>
+                <div id='past-adventures'>
                 {
                     pastAdventures.map(adventure => (
                         <div id="adventure" key={adventure.id}>
@@ -49,11 +50,7 @@ class Adventures extends Component {
                 }
                 </div>
                 <div>
-
-                   <a href="/pods">
-                    <button className="btn btn-dark">Create a new adventure</button>
-                   </a>
-
+                   <a href="/pods"><button className="btn btn-secondary btn-lg btn-block">Create a New Adventure</button></a>
                 </div>
             </div>
         )
