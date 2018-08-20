@@ -4,7 +4,7 @@ import {submitPollThunk} from '../store/poll'
 import axios from 'axios'
 import key from './secrets'
 import {Map} from './index'
-import updateAdventure from '../store/user'
+import {updateAdventure} from '../store/user'
 
 
 class Poll extends Component {
@@ -48,7 +48,7 @@ class Poll extends Component {
     const {priceRange, activityLevel, artsyLevel, hungerLevel, drinkLevel} = this.state
     const {latitude, longitude} = await this.getGeocode(this.state.location)
     this.props.submitPollThunk({latitude,longitude, priceRange, activityLevel, artsyLevel, hungerLevel, drinkLevel, adventureId: +this.props.adventureId, userId:this.props.userId})
-    //this.props.updateAdventure(this.props.adventureId)
+    this.props.updateAdventure(this.props.adventureId)
   }
   // can only test on https
   // onClick =(evt)=> {

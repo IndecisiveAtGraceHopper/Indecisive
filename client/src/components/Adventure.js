@@ -28,6 +28,7 @@ class Adventure extends Component {
     await this.props.getPoll(this.props.match.params.id, this.props.userId)
     await this.props.fetch(this.props.match.params.id)
     await this.props.getAdventures(this.props.userId)
+    console.log('this.props.adventure', this.props.adventure)
     const activities = this.props.activities
     const locations = activities.map(activity => {
       return {coords: activity.address, title: activity.name}

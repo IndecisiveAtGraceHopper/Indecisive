@@ -30,7 +30,7 @@ const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
 const userAdventures = adventures => ({type: USER_ADVENTURES, adventures})
 const addAdventure = adventure => ({type: ADD_ADVENTURE, adventure})
-const updateAdventure = id => ({type: UPDATE_ADVENTURE, id})
+export const updateAdventure = id => ({type: UPDATE_ADVENTURE, id})
 
 /**
  * THUNK CREATORS
@@ -141,7 +141,7 @@ export default function(state = initialState, action) {
     case ADD_ADVENTURE:
       return {...state, adventures: [...state.adventures, action.adventure]}
     case UPDATE_ADVENTURE:
-      return {...state, adventures: state.adventures.map(adventure=> adventure.id===action.id ? {...adventure, counter: adventure.counter++}: adventure)}
+      return {...state, adventures: state.adventures.map(adventure=> adventure.id===action.id ? {...adventure, counter: adventure.counter+1}: adventure)}
     default:
       return state
   }
