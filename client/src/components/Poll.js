@@ -59,12 +59,11 @@ class Poll extends Component {
   // }
 
   render() {
-    console.log('props', this.props)
     return (
       <div className="container" id='poll-page'>
-        <h1>This is the Poll</h1>
+        <h2 className='poll-header'>Enter Your Preferences:</h2>
         <form onSubmit={this.handleSubmit}>
-          <div className="form-group form-check">
+          <div id="map-and-poll" className="form-group form-check">
             <div>
               <label htmlFor="location" />
               <input type="text" name="location" onChange={this.handleChange} className="form-control" id="nameInput" aria-describedby="name" value={this.state.location} />
@@ -76,33 +75,33 @@ class Poll extends Component {
                 </div>
               </div>
             </div>
-            <div>
-              <label htmlFor="priceRange">priceRange</label>
+            <div className='form-input'>
+              <label htmlFor="priceRange">Price Range</label>
               <input type="range" name="priceRange" onChange={this.handleChange} min="0" max="4" defaultValue="2" className="form-control-range" id="formControlRange" />
               <small id="priceRange" className="form-text text-muted" />
             </div>
-            <div>
-              <label htmlFor="activityLevel">activityLevel</label>
+            <div className='form-input'>
+              <label htmlFor="activityLevel">Level of Activity</label>
               <input type="range" name="activityLevel" onChange={this.handleChange} min="0" max="4" defaultValue="2" className="form-control-range" id="formControlRange" />
               <small id="activityLevel" className="form-text text-muted" />
             </div>
-            <div>
-              <label htmlFor="artsyLevel">artsyLevel</label>
+            <div className='form-input'>
+              <label htmlFor="artsyLevel">Artsiness</label>
               <input type="range" name="artsyLevel" onChange={this.handleChange} min="0" max="4" defaultValue="2" className="form-control-range" id="formControlRange" />
               <small id="artsyLevel" className="form-text text-muted" />
             </div>
-            <div>
-              <label htmlFor="hungerLevel">hungerLevel</label>
+            <div className='form-input'>
+              <label htmlFor="hungerLevel">Hungry?</label>
               <input type="range" name="hungerLevel" onChange={this.handleChange} min="0" max="4" defaultValue="2" className="form-control-range" id="formControlRange" />
               <small id="hungerLevel" className="form-text text-muted" />
             </div>
-            <div>
-              <label htmlFor="drinkLevel">drinkLevel</label>
+            <div className='form-input'>
+              <label htmlFor="drinkLevel">Alcohol?</label>
               <input type="range" name="drinkLevel" onChange={this.handleChange} min="0" max="4" defaultValue="2" className="form-control-range" id="formControlRange" />
               <small id="drinkLevel" className="form-text text-muted" />
           </div>
            <span>
-              <button type='submit'>Submit</button>
+              <button type='submit' className="btn btn-primary btn-block">Submit</button>
            </span>
          </div>
         </form>

@@ -54,7 +54,7 @@ class Map extends Component {
             await this.setState({coords, zoom})
         })
         //listener type may need to be 'touchend' for app, needs to be 'mouseup' for web
-        this.map.on('mouseup', async () => {
+        this.map.on('touchend', async () => {
             const address = await this.getAddress(this.state.coords)
             await this.props.setLoc(address)
         })
@@ -149,7 +149,7 @@ class Map extends Component {
             top: 0,
             bottom: 0,
             width: '100%',
-            height: '400px'
+            height: '300px'
         }
         return <div id='mapbox-map' style={style} ref={el => this.mapContainer = el} />;
     }

@@ -11,7 +11,7 @@
 #map-container, #adventure-map-container {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -102,4 +102,17 @@ button {
     padding: 10px;
     margin: 10px;
     max-width: 147px;
+}
+
+#poll-page, #mapbox-map, #map-and-poll {
+    padding: 0;
+    margin: 0;
+}
+
+.form-input {
+    padding: 5px;
+}
+
+.poll-header {
+    padding-top: 5px;
 }

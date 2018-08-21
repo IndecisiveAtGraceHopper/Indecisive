@@ -30,8 +30,8 @@ export const removeActivities = activityId => ({type: REMOVE_ACTIVITIES, activit
 export const fetchActivities = (adventureId) => {
     return async (dispatch) => {
       try {
-        console.log('i am in the thunk')
         const {data} = await axios.get(`/api/adventures/${adventureId}/activities`)
+        console.log('activities', data)
         const action = loadActivities(data)
         dispatch(action)
       } catch (err) {

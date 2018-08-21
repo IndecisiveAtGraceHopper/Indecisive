@@ -45,7 +45,7 @@ export const getPoll = (adventureId, userId)=> {
       dispatch(setPoll(data))
 
     } catch (err){
-      console.log('err in getPoll', err)
+      console.log(err)
     }
   }
 }
