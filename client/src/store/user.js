@@ -134,7 +134,8 @@ export default function(state = initialState, action) {
     case ADD_ADVENTURE:
       return {...state, adventures: [...state.adventures, action.adventure]}
     case UPDATE_ADVENTURE:
-      return {...state, adventures: state.adventures.map(adventure=> adventure.id === action.id ? {...adventure, counter: adventure.counter++}: adventure)}
+      return {...state, adventures: state.adventures.map(adventure=> adventure.id===action.id ? {...adventure, counter: adventure.counter+1}: adventure)}
+
     default:
       return state
   }

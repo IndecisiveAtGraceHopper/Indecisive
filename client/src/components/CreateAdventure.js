@@ -5,6 +5,7 @@ import {createAdventure} from '../store/user'
 class CreateAdventure extends Component {
   constructor(){
     super()
+    let date = Date.now()
     this.state = {
       name: '',
       date: ''
@@ -27,7 +28,7 @@ class CreateAdventure extends Component {
     if (this.props.user) {console.log('here', this.props.user)}
     return(
         <div>
-        <form onSubmit= {this.onClick} className="input-group mb-2 mr-sm-2">
+        <form className="input-group mb-2 mr-sm-2">
           <label>Name:</label>
           <input className="form-control mb-2 mr-sm-2" value= {this.state.name} name='name' onChange={this.handleChange}/>
           <label>Date:</label>

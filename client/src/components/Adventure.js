@@ -12,10 +12,13 @@ class Adventure extends Component {
   async componentDidMount() {
     await this.props.getPoll(this.props.match.params.id, this.props.userId)
     await this.props.fetch(this.props.match.params.id)
-    await this.props.getThisAdventure(this.props.userId)
-    console.log('this.props.poll', this.props.poll)
-    console.log('this.props.activities', this.props.activities)
+    await this.props.getAdventures(this.props.userId)
     console.log('this.props.adventure', this.props.adventure)
+    const activities = this.props.activities
+    const locations = activities.map(activity => {
+      return {coords: activity.address, title: activity.name}
+    })
+    this.setState({locations})
   }
 
   render() {
@@ -48,6 +51,7 @@ class Adventure extends Component {
     }
     else if ((Object.keys(this.props.adventure).length > 0) && (this.props.adventure.counter < this.props.adventure.totalCount)) {
       const {adventure} = this.props
+
       return (<div className='page-body'><h1>{`${adventure.counter} out of ${adventure.totalCount} of your polls are in`}</h1></div>)
     }
     else {
