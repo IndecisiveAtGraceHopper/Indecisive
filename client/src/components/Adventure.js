@@ -62,7 +62,6 @@ class Adventure extends Component {
     }
     else if (this.props.adventure) {
       const {adventure} = this.props
-      console.log('adventure', adventure)
       return (<h1> {`${adventure[0].counter} out of ${adventure[0].totalCount} of your polls are in`} </h1>)
       }
     else {

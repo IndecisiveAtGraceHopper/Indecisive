@@ -128,6 +128,7 @@ class Map extends Component {
     }
 
     async getGeocode (address) {
+        console.log('address', address)
         const location = address.split().join('+')
         const {data} = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${key}`)
         const latitude = data.results[0].geometry.location.lat
